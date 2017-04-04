@@ -1,15 +1,35 @@
 const React = require('react');
 
+const TodoList = require('TodoList');
+
 var TodoApp = React.createClass({
+    getInitialState: function () {
+        return {
+            todos: [
+                {
+                    id: 1,
+                    text: 'Walk the dog'
+                },
+                {
+                    id: 2,
+                    text: 'Clean the yard'
+                },
+                {
+                    id: 3,
+                    text: 'Work on node stuff'
+                },
+                {
+                    id: 4,
+                    text: 'Go to sleep'
+                }
+            ]
+        };
+    },
     render: function () {
+        var {todos} = this.state;
         return (
-            <div className="row">
-                <div className="column small-centered">
-                    <h1 className="sorry">Sorry I can't hang tonight</h1>
-                </div>
-                <div className="column small-centered">
-                    <img className="gong" src="https://media.giphy.com/media/AHfqbsP51mMQE/giphy.gif" alt="gonnnng"/>
-                </div>
+            <div>
+                <TodoList todos={todos}/>
             </div>
             
         );
