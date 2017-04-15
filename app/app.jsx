@@ -17,8 +17,6 @@ store.subscribe(() => {
     console.log('New state', store.getState());
 });
 
-store.dispatch(actions.addTodo('Node projects'));
-
 // Load foundation
 $(document).foundation();
 
