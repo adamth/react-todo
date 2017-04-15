@@ -42,7 +42,9 @@ export var todoReducer = (state = [], action) => {
                         completed: nextCompleted,
                         completedAt: nextCompleted ? moment().unix() : undefined
                     };
-                };
+                } else {
+                    return todo;
+                }
             });
         default:
             return state;

@@ -1,5 +1,6 @@
 const React         = require('react');
 const ReactDOM      = require('react-dom');
+const {Provider}    = require('react-redux');
 var { 
     Route, 
     Router, 
@@ -26,6 +27,8 @@ require('style!css!sass!applicationStyles');
 
 
 ReactDOM.render(
-    <TodoApp />,
+    <Provider store={store}> 
+        <TodoApp />
+    </Provider>,
     document.getElementById('app')
 );
