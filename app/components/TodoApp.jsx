@@ -5,18 +5,9 @@ const moment = require('moment');
 import TodoList from 'TodoList';
 import AddTodo from 'AddTodo';
 import TodoSearch from 'TodoSearch';
-const TodoAPI = require('TodoAPI');
 
 var TodoApp = React.createClass({
-    getInitialState: function () {
-        return {
-            showCompleted: false,
-            searchText: '',
-            todos: TodoAPI.getTodos()
-        };
-    },
     render: function () {
-
         return (
             <div>
                 <h1 className="page-title">Todo App</h1>
@@ -27,12 +18,9 @@ var TodoApp = React.createClass({
                             <TodoList />
                             <AddTodo />
                         </div>
-
                     </div>
-
                 </div>
-            </div>
-            
+            </div>            
         );
     }
 });
