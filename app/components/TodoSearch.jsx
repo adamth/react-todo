@@ -1,12 +1,15 @@
 const React = require('react');
 
 const actions = require('actions');
-const {connect} = require('react-redux');
+const { connect } = require('react-redux');
 
-export var TodoSearch = React.createClass({
+export class TodoSearch extends React.Component {
+    constructor(props) {
+        super(props);
+    };
 
-    render: function() {
-        var {dispatch, showCompleted, searchText} = this.props;
+    render() {
+        var { dispatch, showCompleted, searchText } = this.props;
         return (
             <div className="container__header">
                 <div>
@@ -19,14 +22,39 @@ export var TodoSearch = React.createClass({
                     <label>
                         <input type="checkbox" ref="showCompleted" checked={showCompleted} onChange={() => {
                             dispatch(actions.toggleShowCompleted());
-                        }}/>
+                        }} />
+                        Show completed todos
+                    </label>
+                </div>
+            </div>
+        );
+    };
+};
+
+/*export var TodoSearch = React.createClass({
+
+    render: function () {
+        var { dispatch, showCompleted, searchText } = this.props;
+        return (
+            <div className="container__header">
+                <div>
+                    <input type="search" ref="searchText" placeholder="Search todos" value={searchText} onChange={() => {
+                        var searchText = this.refs.searchText.value;
+                        dispatch(actions.setSearchText(searchText));
+                    }} />
+                </div>
+                <div>
+                    <label>
+                        <input type="checkbox" ref="showCompleted" checked={showCompleted} onChange={() => {
+                            dispatch(actions.toggleShowCompleted());
+                        }} />
                         Show completed todos
                     </label>
                 </div>
             </div>
         );
     }
-});
+});*/
 
 export default connect(
     (state) => {
@@ -34,4 +62,4 @@ export default connect(
             showCompleted: state.showCompleted,
             searchText: state.searchText
         };
-})(TodoSearch);
+    })(TodoSearch);
