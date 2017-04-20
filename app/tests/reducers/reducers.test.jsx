@@ -78,9 +78,8 @@ describe('Reducers',() => {
             };
 
             var res = reducers.todoReducer(df([]), df(action));
-            console.log('Res console log', res);
             expect(res.length).toEqual(1);
             expect(res[0]).toEqual(todos[0]);
-        })
+        });
     });
 });
